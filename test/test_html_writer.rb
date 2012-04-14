@@ -62,9 +62,9 @@ class TestHtmlWriter < Test::Unit::TestCase
       html.body do |body|
         body.p 'foo'
         body.p do |p|
-          p.span do |span_two|
-            span_two.span do |span_three|
-              span_three.span { |span_four| span_four.span 'bar' }
+          p.span do |span_one|
+            span_one.span do |span_two|
+              span_two.span { |span_three| span_three.span 'bar' }
             end
           end
         end

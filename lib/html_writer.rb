@@ -27,7 +27,6 @@ class HtmlWriter
       yield self
     else
       @html << args.join('')
-      args.join('')
     end
     @html << "</#{name}>"
   end
