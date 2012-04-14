@@ -1,7 +1,7 @@
 class HtmlWriter
   VERSION = '0.1.0'
   
-  VALID_TAGS = [:head, :title, :body, :p, :em, :strong]
+  VALID_TAGS = [:head, :title, :body, :p, :span, :em, :strong]
   
   def initialize
     @html = ''

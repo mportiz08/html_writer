@@ -16,6 +16,29 @@ class TestHtmlWriter < Test::Unit::TestCase
     assert_equal expected, basic_html
   end
   
+  def test_nested_html
+    expected =
+      '<!DOCTYPE html>'\
+      '<html>'\
+      '<head>'\
+        '<title>foobar</title>'\
+      '</head>'\
+      '<body>'\
+        '<p>foo</p>'\
+        '<p>'\
+          '<span>'\
+            '<span>'\
+              '<span>'\
+                '<span>bar</span>'\
+              '</span>'\
+            '</span>'\
+          '</span>'\
+        '</p>'\
+      '</body>'\
+      '</html>'
+    assert_equal expected, nested_html
+  end
+  
   private
   
   def basic_html
@@ -26,6 +49,25 @@ class TestHtmlWriter < Test::Unit::TestCase
       end
       html.body do |body|
         body.p 'hello, world'
+      end
+    end
+  end
+  
+  def nested_html
+    HtmlWriter.new.write do |html|
+      html.doctype 5
+      html.head do |head|
+        head.title 'foobar'
+      end
+      html.body do |body|
+        body.p 'foo'
+        body.p do |p|
+          p.span do |span_two|
+            span_two.span do |span_three|
+              span_three.span { |span_four| span_four.span 'bar' }
+            end
+          end
+        end
       end
     end
   end
