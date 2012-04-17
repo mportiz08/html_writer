@@ -4,6 +4,8 @@ a small DSL for writing HTML
 
 ## usage
 
+#### ruby
+
 ``` ruby
 HtmlWriter.new.write do |html|
   html.doctype 5
@@ -14,6 +16,8 @@ HtmlWriter.new.write do |html|
     body.p 'hello, world'
   end
 end
+
+#### html
 
 ``` html
 <!DOCTYPE html>
