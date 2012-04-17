@@ -39,6 +39,15 @@ class TestHtmlWriter < Test::Unit::TestCase
     assert_equal expected, nested_html
   end
   
+  def test_invalid_html
+    assert_raises HtmlWriter::InvalidTagError do
+      HtmlWriter.new.write do |html|
+        html.doctype 5
+        html.blah
+      end
+    end
+  end
+  
   private
   
   def basic_html

@@ -25,3 +25,7 @@ end
   <p>hello, world</p>
 </body>
 </html>
+
+## todo
+
+* support other doctypes besides html5
