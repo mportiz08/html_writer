@@ -3,7 +3,7 @@ require 'html_writer'
 
 Gem::Specification.new do |s|
   s.name        = 'html_writer'
-  s.version     = HtmlWriter.VERSION
+  s.version     = HtmlWriter::VERSION
   s.summary     = 'a small DSL for writing HTML'
   s.description = s.summary
   s.author      = 'Marcus Ortiz'
