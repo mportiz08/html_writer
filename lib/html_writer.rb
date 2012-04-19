@@ -1,5 +1,7 @@
 class HtmlWriter
-  VERSION = '0.1.0'
+  VERSION = '0.2.0'
+  
+  DEFAULT_DOCTYPE = 5
   
   VALID_TAGS = {
     5 => [
@@ -32,13 +34,18 @@ class HtmlWriter
   class InvalidTagError < StandardError; end
   
   def initialize
-    @html = ''
+    @html    = ''
+    @doctype = DEFAULT_DOCTYPE
   end
   
   def write
     @html << '<html>'
     yield self
     @html << '</html>'
+  end
+  
+  def write_inline
+    yield self
   end
   
   def doctype(doctype)

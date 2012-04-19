@@ -48,6 +48,11 @@ class TestHtmlWriter < Test::Unit::TestCase
     end
   end
   
+  def test_inline_html
+    assert_equal '<p>foobar</p>',
+                 HtmlWriter.new.write_inline { |html| html.p 'foobar' }
+  end
+  
   private
   
   def basic_html
